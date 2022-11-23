@@ -56,7 +56,7 @@ const Todo_schema=mongoose.Schema({
 
 
 const Users=new mongoose.model("User",Register_schema)
-// const Todos=new mongoose.model("Todo",Todo_schema)
+const Todos=new mongoose.model("Todo",Todo_schema)
 
 const Register=async ()=>{
 const connect=await mongoose.connect("mongodb://localhost:27017/Registration")
@@ -92,12 +92,11 @@ app.post("/register",async (req,res)=>{
 app.post("/login",async(req,res)=>{
 
     let{email,password}=req.body
+    console.log(email.password)
     
     let user=await Users.find({email})
 
     if(!user){
-    //   return  res.status(404).send({response:"Bad request",
-    //     message:"Email doesn't exist"})
     return res.status(404).send("user doesn't exit")
     }
 
@@ -138,8 +137,8 @@ res.send("todo added successfully")
 
 app.get("/todos",async(req,res)=>{
     let todos=await Todos.find()
-    console.log(todos)
-    res.send("List of todos")
+    // console.log(todos)
+    res.send(todos)
 })
 
 app.patch("/todo/:task",async(req,res)=>{
