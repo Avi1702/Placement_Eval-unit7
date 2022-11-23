@@ -10,8 +10,10 @@
     align-items: center;
     background-color: bisque;
     position: sticky;
+    /* margin-top: 20px; */
 }
 #main ul{
+    /* margin-top:20px; */
     width: 50%;
     display:flex;
     justify-content: space-evenly;
