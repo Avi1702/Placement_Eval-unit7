@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import "../styles/Register.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Register = () => {
 
@@ -10,7 +10,7 @@ export const Register = () => {
     const [password,setPassword]=React.useState("")
     const [confirm,setConfirm]=React.useState("")
    
-    
+    const navigate=useNavigate()
 
 
     const register=()=>{
@@ -29,6 +29,7 @@ export const Register = () => {
             .catch((err) => console.log(err))
 
         window.alert("User Register Successfully")
+        navigate("/Login")
     }
   return (
     <div id="register">
